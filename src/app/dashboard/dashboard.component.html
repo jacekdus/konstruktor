@@ -1,0 +1,24 @@
+<header>
+  <h1>Dashboard</h1>
+</header>
+
+<section>
+  <h2>Begin new project!</h2>
+  <button (click)="createProject()" mat-raised-button color="accent">
+    <span>New project</span>
+  </button>
+</section>
+
+<section>
+  <h2>Your projects: </h2>
+  <div class="card-container">
+    <div class="box" *ngFor="let project of projects">
+      <app-card 
+        (copyProjectEvent)="copyProject($event)" 
+        (deleteProjectEvent)="deleteProject($event)" 
+        (renameProjectEvent)="renameProject($event)"
+        [project]="project">
+      </app-card>
+    </div>
+  </div>
+</section>
